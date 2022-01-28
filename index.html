@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/0383fc1297.js"></script>
+    <!-- send grid js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+    emailjs.init("user_EWWgEFGK35cKvi32GQSDa");
+    })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Game</title>
+</head>
+<body>
+    <!-- welcome -->
+    <section class="welcome-box " id="welcome">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="main-header welcome text-capitalize text-center">African Studies</h1>
+                    <p class="text">This game tests your knowledge (and also teaches you) about Africa. I hope you enjoy it.</p>
+                    <p class="text"> The basketball animation is from <a href="https://i.pinimg.com/originals/79/07/bb/7907bb62e5e2d77255b4fe10770fae41.gif" class="text-danger">here</a> </p>
+                    <div class="d-flex justify-content-around btns">
+                        <button class="btn btn-primary btn-lg start"> Start Game </button>
+                        <button class="btn btn-secondary btn-lg contact ml-3">Contact Me </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Info Box -->
+    <section class="info-box d-none" id="info-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12"> 
+                    <h1 class="main-header info"> Rules of the quiz</h1>
+                    <div class="info-list">
+                        <p class="info"> 1. You have <span> 40 seconds </span>to answer 20 questions.</p>
+                        <p class="info"> 2. Once you have selected your answer, it can't be undone.</p>
+                        <p class="info"> 3. You can't select any option once your time is up.</p>
+                        <p class="info"> 4. You can exit from the quiz (but please don't 😉).</p>
+                        <p class="info"> 5. You'll get points on the basis of your correct answers.</p>
+                        <p class="info"> 6. Ensure you have fun and learn. Good Luck 😊 </p>
+                    </div>
+                    <div class="btns d-flex justify-content-around col-md-12 col-sm-12">
+                        <button class="btn btn-primary continue ml-3"> Continue </button>
+                        <a href="./animation.html" class="exit-quiz btn btn-danger mr-5"> Exit quiz</a>                       
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <!-- start game -->
+    <section class="start-box d-none">
+        <!-- just something to start the game -->
+    </section>
+
+    <!-- quiz Box -->
+    <section class="quiz-box d-none">
+        <header> 
+            <h4 class="title text-uppercase text-center"> African Studies</h4>
+                <div class="timer row">
+                    <div class="timer-text"> You have: </div>
+                    <div class="timer-sec">0</div>
+                </div>
+        </header>
+        <section>
+            <div class="que-text col-md-12 pb-4">
+            </div>
+            <div class="option-list">
+                <div class="option ">
+                    <!-- <span> Lorem</span>
+                    <div class="icon tick"> <i class="fa fa-check"></i></div> -->
+                </div>
+                <div class="option ">
+                    <!-- <span> Ipsum </span>
+                    <div class="icon cross"> <i class="fa fa-times"></i></div> -->
+                </div>
+                <div class="option ">
+                </div>
+                <div class="option ">
+                </div>
+
+            </div>
+                <p class="score-display d-none"> You have <span class="score"></span> points</p>
+        </section>
+
+        <!-- Quiz Box Footer -->
+        <footer>
+            <div class="total-que row"> 
+                <div class="d-flex p-2"><span class="curr-que-num pl-2"></span> <span class="total-que-num"></span></div> 
+            </div>
+            <div class="btns d-flex justify-content-around col-md-12 col-sm-12">
+                <button class="next btn btn-primary"> Next &#10132; </button>
+                
+                <a href="./animation.html" class="quit-quiz btn btn-danger"> Quit quiz</a>  
+            </div>
+        </footer>        
+    </section>
+
+    <!-- Contact Box -->
+    <section class="contact-box d-none">
+        <div class="text-area">
+            <h2> Hi, thanks for reaching out. I will get back to you as soon as possible.</h2>
+                <form id="contact-form">
+                    <div class="mb-3">
+                        <label for="userNameInput" class="form-label">Name<span class="asteriks">&#42;</span> </label>
+                        <input type="text" class="form-control" placeholder="Enter details" id="userNameInput" required>
+                    </div>
+                      
+                    <div class="mb-3 ">
+                      <label for="userEmail" class="form-label">Email Address<span class="asteriks">&#42;</span></label>
+                      <input type="email" class="form-control" placeholder="Enter details" id="userEmail" required>
+                    </div>
+
+                      <!-- Message input -->
+                      <div class="form-outline mb-4 msg-area">
+                        <label class="form-label" for="messageArea">Message<span class="asteriks">&#42;</span></label>
+                        <textarea class="form-control" id="messageArea" rows="5"  placeholder="Type message..." required></textarea>
+                    </div>
+                    <div class="btns">
+                        <button type="submit"  class="btn btn-success" onclick="sendEmail()">
+                            Send Message
+                        </button>
+                        <button class="btn btn-primary back-to-quiz"> Back To Quiz</button>
+
+                    </div>
+                </form>     
+        </div>
+    </section>
+
+    <!-- Result Box -->
+    <section class="result-box d-none">
+        <div class="icon">
+            <i class="fa fa-handshake-o"></i>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12"> 
+            <h1 class="complete-text"> Congratulations, you have completed the quiz.</h1> 
+        </div>
+        
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="score-text"></p>
+                <!-- <span> Sorry, you got only <p> 2</p> out of <p>10 questions.  </p></span> -->
+            </div>
+            <div class="btns col-lg-12 col-md-12 col-sm-12">
+                <button class="restart btn btn-primary"> Play again</button>
+                <button class="contact2 btn btn-secondary" id="contact"> Contact Me</button>
+            </div>
+        </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

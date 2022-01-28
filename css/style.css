@@ -1,0 +1,173 @@
+/* generic */
+:root {
+  --primaryBg: rgb(73, 180, 105);
+  --secondaryBg: #6b13be;
+  --tertiaryBg: #1613be;
+  --white: rgb(236, 231, 231);
+  --black: rgb(22, 21, 21);
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+li{
+  list-style-type: none;
+}
+
+i{
+  color: #262626;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn{
+  white-space: nowrap;
+  border-radius: 15px;
+}
+/* end generic */
+
+
+.welcome-box {
+  background: var(--primaryBg);
+  width: 60% !important;
+  padding: 20px 5px !important;
+}
+
+/* .welcome-box .btns{
+  font-size: 0.2em !important;
+} */
+
+
+.info-box{
+  background: var(--secondaryBg);
+  padding: 20px 5px !important;
+  
+}
+
+
+.result-box {
+  background: url('https://media.giphy.com/media/5jT0jaNDsM6Ik7X9yq/giphy.gif');
+}
+
+.result-box .icon .fa {
+  margin-left: 40%;
+  margin-bottom: 20%;
+  bottom: 10%;
+  color: rgb(220, 230, 235);
+  font-size: 5em;
+}
+
+@media(max-width: 575px) {
+  .result-box .icon .fa {
+    margin-left: 25%;
+  }
+
+}
+
+.result-box .complete-text{
+  font-size: 1.2em;
+  margin-bottom: 50px;
+}
+
+.result-box .score-text{
+  margin-left: 10px;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+.exitbox {
+  background: var(--redBg);
+}
+
+.quiz-box {
+  background-color: var(--tertiaryBg);
+  
+}
+
+.quiz-box .btns {
+  margin:40px 0;
+}
+
+.contact-box {
+  background: rgb(38, 63, 63);
+  /* padding: 80px !important; */
+}
+
+.exit-box{
+  background-color: #231832;
+}
+
+.welcome-box, .info-box, .exitbox, .quiz-box, .contact-box, .result-box, .exit-box, .basket-ball{
+  margin: 0 auto;
+  padding: 5px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border-radius: 10px;
+  color: var(--white);
+  transform: translate(-50%, -50%);
+}
+
+.fa-check {
+  color: rgb(88, 170, 88);
+}
+
+.fa-times {
+  color: rgb(100, 21, 21);
+}
+
+.disabled{
+  pointer-events: none;
+}
+
+footer p {
+  color: rgb(204, 194, 202);
+  padding-left: 5px;
+  font-weight: 700;
+}
+
+footer .total-que div{
+  padding: 0 15px;
+  margin-left: 20px;
+  box-shadow: 5px 5px 5px 2px rgb(197, 180, 194);
+  
+}
+
+
+.timer-text, .timer-sec{
+  margin:  20px;
+  color: rgb(105, 192, 214);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+
+.contact-box {
+  padding: 20px;
+  height: fit-content;
+}
+
+.contact-box h2 {
+  padding-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.contact-box span {
+  color: red;
+}
+
+.contact-box form input, .contact-box form textarea {
+  border: 1px solid rgb(149, 216, 216);
+  border-radius: 10px;
+  width: 70%;
+  resize: none;
+}
+
+
+
