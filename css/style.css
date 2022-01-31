@@ -36,15 +36,14 @@ a {
 
 .welcome-box {
   background: var(--primaryBg);
-  width: 70% !important;
-  padding: 20px 5px !important;
+  padding: 20px 15px !important;
 }
+
 
 .welcome-box li{
   list-style-type: circle;
   padding: 10px;
 }
-
 
 .info-box{
   background: var(--secondaryBg);
@@ -87,8 +86,12 @@ a {
 }
 
 .quiz-box {
-  background-color: var(--tertiaryBg);
-  
+  background-color: var(--tertiaryBg);  
+}
+
+.quiz-box .title {
+  border-bottom: 2px solid red;
+  width: 100%;
 }
 
 .quiz-box .btns {
@@ -169,5 +172,16 @@ footer .total-que div{
   resize: none;
 }
 
+.option-item {
+  border: none;
+  font-size: 1.1em;
+}
 
+.option-item:hover {
+  background-color: rgb(105, 192, 214);
+  font-size: 1.3em;
+  color: white;
+  box-shadow: 5px 5px 2px 2px rgb(31, 31, 156);
+  margin-bottom: 25px;
+}
 

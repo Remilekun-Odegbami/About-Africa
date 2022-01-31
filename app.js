@@ -7,7 +7,8 @@ class gameStart{
         // global variables
         this.currentQuestion = 0;
         this.userScore = 0;          
-        this.timeValue = 40; 
+        this.timeValue = 50; 
+        this.counter;
 
         this.que = [ 
             {
@@ -248,7 +249,6 @@ class gameStart{
             // select html classes of boxs and buttons
             const welcomeBox = document.querySelector(".welcome-box");
             const infoBox = document.querySelector(".info-box");
-            const exitBox = document.querySelector(".exit-box");
             const startBox = document.querySelector(".start-box");
             const quizBox = document.querySelector(".quiz-box");
             const contactBox = document.querySelector(".contact-box");
@@ -327,16 +327,21 @@ class gameStart{
             infoBox.classList.remove('d-none');
             resultBox.classList.add('d-none');        
             nextBtn.classList.remove('d-none');
-            this.createQuestion();
-            this.setScore();
             
             const timerText = document.querySelector(".timer-text");
             timerText.textContent = "You have:"
             timerText.style.color = 'inherit';
-
+            
             
             const timerSec = document.querySelector(".timer-sec");
             timerSec.style.color = 'inherit'
+            
+            this.timeValue = 50;
+            this.userScore = 0;
+            this.currentQuestion = 0;
+            this.setNumOfQue(); 
+            this.updateScoreDisplay();
+            this.createQuestion(); 
         })
         
         //contact2 button
@@ -383,13 +388,13 @@ class gameStart{
            let queOptions =  this.que[this.currentQuestion].options;
 
            
-           
+           // this creates the options and add its functionality
              queOptions.forEach(element => {
 
                 let options = document.querySelector('.option');
                 // creates a new p tag
-                options = document.createElement('p');
-                 options.className = "col-md-12 mb-2 d-flex pl-5";
+                options = document.createElement('button');
+                options.className = "col-md-12 mb-2 d-flex option-item";
 
                options.innerText = element;
                question.appendChild(options);
@@ -404,11 +409,15 @@ class gameStart{
                             options.insertAdjacentHTML("beforeend", tickIcon)
                             console.log('The answer is correct')
                             this.setScore();
-
                         }
-                                             
-                        
-                    });            
+
+                        // to disable button after answer has been clicked
+                        const answers = document.querySelectorAll(".option-item");
+
+                        answers.forEach(el => {
+                            el.disabled = true
+                        }) 
+                    });       
 
             })            
 
@@ -421,74 +430,75 @@ class gameStart{
     } 
 
     setScore() {
-        const score = document.querySelector('.score');          
-        console.log(this.userScore);
-        score.innerText = this.userScore;
+        
         this.userScore++;
+        this.updateScoreDisplay();
+    }
+    
+    updateScoreDisplay() {
+        const score = document.querySelector('.score');     
+        score.innerText = this.userScore;        
+
     }
 
-    setTimer(time) {        
+    scoreMsg() {
+        const scoreText = document.querySelector('.score-text');
+        if(this.userScore <= 5) {
+            console.log(this.userScore);
+            scoreText.textContent = `Your score is ${this.userScore}. Well done but please try again!`
+        } else if(this.userScore > 5 && this.userScore <= 10) {
+            scoreText.textContent = `Your score is ${this.userScore}. Try again, I am sure you can do better!`
+        } else if (this.userScore > 10 && this.userScore <= 15) {
+            scoreText.textContent = `Your score is ${this.userScore}. Well done Champ! Nice try.`
+        } else {
+            scoreText.textContent = `Your score is ${this.userScore}. You are an African genius. Well done Champ!!!`
+        }     
+       
+    }
+
+    setTimer(time) {  
+        
+        this.counter = setInterval(() => {
+            this.timer(time)
+            
+        }, 1000);
+        
+    }
+    
+    timer() {              
         const timerText = document.querySelector(".timer-text");
         const timerSec = document.querySelector(".timer-sec");
         const resultBox = document.querySelector(".result-box");
         const quizBox = document.querySelector(".quiz-box");        
         const nextBtn = document.querySelector(".next");
-        
-        let counter;
-        counter = setInterval(timer, 1000);
-        
-        function timer() {
-            timerSec.textContent = time;
-            time--;
-            
-            if (time < 10) {
-                timerSec.style.color = 'red'
 
-            }
-            if(time == -1 ) {
-                clearInterval(counter);
-                timerSec.textContent = "00";
-                timerSec.style.color = 'red'
-                timerText.textContent = "Your Time Is Up!"
-                timerText.style.color = 'red';
-                quizBox.classList.add('d-none')
-                resultBox.classList.remove('d-none');
-                nextBtn.classList.add('d-none');
-            }
-            this.timeValue = 40;
+        timerSec.textContent = this.timeValue;
+        this.timeValue--;
+        
+        if (this.timeValue < 15) {
+            timerSec.style.color = 'red'
+
         }
-    }
+        if(this.timeValue == -1 ) {
+            timerSec.textContent = "00";
+            timerSec.style.color = 'red'
+            timerText.textContent = "Your Time Is Up!"
+            timerText.style.color = 'red';
+            quizBox.classList.add('d-none')
+            resultBox.classList.remove('d-none');
+            nextBtn.classList.add('d-none');
+            clearInterval(this.counter);
+            this.scoreMsg();
+        }
 
+    }
     setNumOfQue() {
         const currQue = document.querySelector(".curr-que-num");
         const totalQue = document.querySelector(".total-que-num");
-        // to space the texts
         
         currQue.innerHTML = `${this.que[this.currentQuestion].num} of `;
         totalQue.innerHTML =` ${this.que.length} questions`;
     }
-
-
-    scoreMsg() {
-        this.userScore ++;
-        const scoreText = document.querySelector('.score-text');
-        if(this.userScore <= 5) {
-            this.userScore ++;
-            console.log(this.userScore);
-            scoreText.textContent = `Your score is ${this.userScore}. Try again!`
-        } else if(this.userScore > 5 && this.userScore <= 10) {
-            this.userScore ++;
-            scoreText.textContent = 'You can do better!'
-        } else if (this.userScore > 10 && this.userScore <= 15) {
-            this.userScore ++;
-            scoreText.textContent = 'Well done Champ! Nice try.'
-        } else {
-            this.userScore ++;
-            scoreText.textContent = 'You are an African genius. Well done Champ!!!'
-        }        
-       
-    }
-
 
 }
 
