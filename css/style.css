@@ -36,13 +36,14 @@ a {
 
 .welcome-box {
   background: var(--primaryBg);
-  width: 60% !important;
+  width: 70% !important;
   padding: 20px 5px !important;
 }
 
-/* .welcome-box .btns{
-  font-size: 0.2em !important;
-} */
+.welcome-box li{
+  list-style-type: circle;
+  padding: 10px;
+}
 
 
 .info-box{
@@ -96,7 +97,6 @@ a {
 
 .contact-box {
   background: rgb(38, 63, 63);
-  /* padding: 80px !important; */
 }
 
 .exit-box{

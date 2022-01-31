@@ -101,5 +101,7 @@
       background-color: blueviolet;
       border: 2px solid white;
       text-decoration: none;
-      margin: 0 auto !important ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }

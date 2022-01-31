@@ -6,8 +6,7 @@ class gameStart{
     constructor() {
         // global variables
         this.currentQuestion = 0;
-        this.userScore = 0;
-                   
+        this.userScore = 0;          
         this.timeValue = 40; 
 
         this.que = [ 
@@ -242,7 +241,6 @@ class gameStart{
         this.setTimer;
         this.setNumOfQue();
         this.scoreMsg();
-
        
     }
     
@@ -465,24 +463,27 @@ class gameStart{
         const currQue = document.querySelector(".curr-que-num");
         const totalQue = document.querySelector(".total-que-num");
         // to space the texts
-        totalQue.className = "pl-2"
-
+        
         currQue.innerHTML = `${this.que[this.currentQuestion].num} of `;
         totalQue.innerHTML =` ${this.que.length} questions`;
     }
 
 
     scoreMsg() {
-        this.setScore();
+        this.userScore ++;
         const scoreText = document.querySelector('.score-text');
         if(this.userScore <= 5) {
+            this.userScore ++;
             console.log(this.userScore);
             scoreText.textContent = `Your score is ${this.userScore}. Try again!`
         } else if(this.userScore > 5 && this.userScore <= 10) {
+            this.userScore ++;
             scoreText.textContent = 'You can do better!'
         } else if (this.userScore > 10 && this.userScore <= 15) {
+            this.userScore ++;
             scoreText.textContent = 'Well done Champ! Nice try.'
         } else {
+            this.userScore ++;
             scoreText.textContent = 'You are an African genius. Well done Champ!!!'
         }        
        
