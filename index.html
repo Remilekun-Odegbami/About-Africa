@@ -1,37 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://use.fontawesome.com/0383fc1297.js"></script>
-
-    <link rel="stylesheet" href="css/animation.css">
+    <!-- send grid js -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("user_EWWgEFGK35cKvi32GQSDa");
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Game</title>
-</head>
-<body>
-
-    <section class="animation-box active">
-        <h1 class="text-center text-white text-capitalize">free throw quiz</h1>
-        <div> <img src="https://s-media-cache-ak0.pinimg.com/originals/79/07/bb/7907bb62e5e2d77255b4fe10770fae41.gif"/></div>
-            <div class="d-flex justify-content-around btns">
+  </head>
+  <body>
+    <!-- welcome -->
+    <section class="welcome-box" id="welcome">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="main-header welcome text-capitalize text-center">
+              About Africa
+            </h1>
+            <ul>
+              <li class="text">
+                This game tests your knowledge (and also teaches you) about
+                Africa.
+              </li>
+              <li class="text">Please relax and enjoy the game.</li>
+              <li class="text">Ensure you learn while having fun.</li>
+            </ul>
+            <div class="btns d-flex justify-content-around col-md-12 col-sm-12">
+              <button class="btn btn-primary btn-lg start">Start Game</button>
+              <button class="btn btn-secondary btn-lg contact ml-3">
+                Contact Me
+              </button>
             </div>
-            <a href="./game.html" class="play-game btn btn-primary">Play Game</a> 
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="d-none">
-        <button class="start btn btn-secondary"> start</button>
-        <button class="exit btn btn-secondary"> exit</button>
-        <button class="continue btn btn-secondary"> continue </button>
-        <button class="contact btn btn-secondary"> contact</button>
-        <button class="next btn btn-secondary"> next</button>
-        <button class="back-to-quiz btn btn-secondary"> next</button>
-        <button class="restart btn btn-secondary"> next</button>
-        <button class="contact2 btn btn-secondary"> next</button>
+    <!-- Info Box -->
+    <section class="info-box d-none" id="info-box">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <h1 class="main-header info">Rules of the quiz</h1>
+            <div class="info-list">
+              <p class="info">
+                1. You have <span> 60 seconds </span>to answer 20 questions.
+              </p>
+              <p class="info">
+                2. Once you have selected your answer, it can't be undone.
+              </p>
+              <p class="info">
+                3. You can't select any option once your time is up.
+              </p>
+              <p class="info">
+                4. You can exit from the quiz (but please don't 😉).
+              </p>
+              <p class="info">
+                5. You'll get points on the basis of your correct answers.
+              </p>
+              <p class="info">6. Ensure you have fun and learn. Good Luck 😊</p>
+            </div>
+            <div class="btns d-flex justify-content-around col-md-12 col-sm-12">
+              <button class="btn btn-primary continue ml-3">Continue</button>
+              <a href="#welcome" class="exit-quiz btn btn-danger mr-5">
+                Exit quiz</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <script src="app.js "></script>
-</body>
+
+    <!-- start game -->
+    <section class="start-box d-none">
+      <!-- just something to start the game -->
+    </section>
+
+    <!-- quiz Box -->
+    <section class="quiz-box d-none">
+      <header>
+        <h4 class="title text-uppercase text-center">About Africa</h4>
+        <div class="timer row">
+          <div class="timer-text">You have :</div>
+          <div class="timer-sec">0</div>
+        </div>
+      </header>
+      <section>
+        <div class="que-text col-md-12 pb-4"></div>
+        <div class="option-list">
+          <div class="option">
+            <!-- <span> Lorem</span>
+                    <div class="icon tick"> <i class="fa fa-check"></i></div> -->
+          </div>
+          <div class="option">
+            <!-- <span> Ipsum </span>
+                    <div class="icon cross"> <i class="fa fa-times"></i></div> -->
+          </div>
+          <div class="option"></div>
+          <div class="option"></div>
+        </div>
+        <p class="score-display d-none">
+          You have <span class="score"></span> points
+        </p>
+      </section>
+
+      <!-- Quiz Box Footer -->
+      <footer>
+        <div class="total-que row">
+          <div class="d-flex">
+            <span class="curr-que-num pr-2"></span>
+            <span class="total-que-num"></span>
+          </div>
+        </div>
+        <div class="btns d-flex justify-content-around col-md-12 col-sm-12">
+          <button class="next btn btn-primary">Next &#10132;</button>
+
+          <a href="#welcome" class="quit-quiz btn btn-danger"> Quit quiz</a>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Contact Box -->
+    <section class="contact-box d-none">
+      <div class="container">
+        <div class="row">
+          <div class="text-area">
+            <h2>
+              Hi, thanks for reaching out. I will get back to you as soon as
+              possible.
+            </h2>
+            <form id="contact-form">
+              <div class="mb-3">
+                <label for="userNameInput" class="form-label"
+                  >Name<span class="asteriks">&#42;</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter details"
+                  id="userNameInput"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="userEmail" class="form-label"
+                  >Email Address<span class="asteriks">&#42;</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter details"
+                  id="userEmail"
+                  required
+                />
+              </div>
+
+              <!-- Message input -->
+              <div class="form-outline mb-4 msg-area">
+                <label class="form-label" for="messageArea"
+                  >Message<span class="asteriks">&#42;</span></label
+                >
+                <textarea
+                  class="form-control"
+                  id="messageArea"
+                  rows="5"
+                  placeholder="Type message..."
+                  required
+                ></textarea>
+              </div>
+              <div class="btns">
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  onclick="sendEmail()"
+                >
+                  Send Message
+                </button>
+                <a href="#info-box" class="back-to-quiz btn btn-primary">
+                  Back to quiz</a
+                >
+              </div>
+            </form>
+          </div>
+          <div class="socials">
+            <div class="d-flex">
+              <a
+                href="https://twitter.com/Rem_dev22?t=iGkHQywSS5v2ROOH6k3-pg&s=08"
+                class="twitter"
+                ><i class="fa fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/remilekun-odegbami"
+                class="linkedin"
+                ><i class="fa fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/Remilekun-Odegbami" class="youtube"
+                ><i class="fa fa-github"></i
+              ></a>
+              <a href="mailto:remdev22@gmail.com" class="mail"
+                ><i class="fa fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result Box -->
+    <section class="result-box d-none">
+      <div class="icon">
+        <i class="fa fa-handshake-o"></i>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="complete-text">
+          Congratulations, you have completed the quiz.
+        </h1>
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <p class="score-text"></p>
+        <!-- <span> Sorry, you got only <p> 2</p> out of <p>10 questions.  </p></span> -->
+      </div>
+      <div class="btns col-lg-12 col-md-12 col-sm-12">
+        <button class="restart btn btn-primary">Play again</button>
+        <button class="contact2 btn btn-secondary" id="contact">
+          Contact Me
+        </button>
+      </div>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
 </html>
